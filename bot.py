@@ -7,8 +7,16 @@ Created on Thu Jul  1 14:38:21 2021
 
 import discord
 from discord import channel
+from discord import file
 from discord.ext import commands
 from discord.flags import Intents
+import json
+import random
+import os
+
+with open('setting.json','r',encoding='utf-8') as jfile:
+    jdata=json.load(jfile)
+
 intents=discord.Intents.default()
 intents.members=True
 intents.presences=False
@@ -21,11 +29,32 @@ async def on_ready():
 
 @bot.event
 async def on_member_join(member):
-    channel=bot.get_channel(860064974302609429)
+    channel=bot.get_channel(int(jdata['welcome_channel']))
     await channel.send(f'{member} join!!')
+
 @bot.event
 async def on_member_remove(member):
-    channel=bot.get_channel(860065136219521045)
+    channel=bot.get_channel(int(jdata['leave_channel']))
     await channel.send(f'{member} leave!!')
 
-bot.run('ODYwMDQxNDk5OTA3NTg4MDk2.YN1eEA.FGii3vKbbAGnsi6RzL83v3KwI_Y')
+@bot.command()
+async def load(ctx,extension):
+    bot.load_extension(f'cmds.{extension}')
+    await ctx.send(f'loaded {extension} done.')
+
+@bot.command()
+async def unload(ctx,extension):
+    bot.unload_extension(f'cmds.{extension}')
+    await ctx.send(f'un-loaded {extension} done.')
+
+@bot.command()
+async def reload(ctx,extension):
+    bot.reload_extension(f'cmds.{extension}')
+    await ctx.send(f're-loaded {extension} done.')
+
+for filename in os.listdir('./cmds'):
+    if filename.endswith('py'):
+        bot.load_extension(f'cmds.{filename[:-3]}')
+
+if__name__="__main__"        
+bot.run(jdata['TOKEN'])
