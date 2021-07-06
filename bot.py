@@ -27,26 +27,16 @@ bot= commands.Bot(command_prefix='[',intents=intents)
 async def on_ready():
     print(">>Bot is online<<")
 
-@bot.event
-async def on_member_join(member):
-    channel=bot.get_channel(int(jdata['welcome_channel']))
-    await channel.send(f'{member} join!!')
-
-@bot.event
-async def on_member_remove(member):
-    channel=bot.get_channel(int(jdata['leave_channel']))
-    await channel.send(f'{member} leave!!')
-
-@bot.command()
-async def load(ctx,extension):
-    bot.load_extension(f'cmds.{extension}')
-    await ctx.send(f'loaded {extension} done.')
-
 @bot.command()
 async def unload(ctx,extension):
     bot.unload_extension(f'cmds.{extension}')
     await ctx.send(f'un-loaded {extension} done.')
 
+@bot.command()
+async def load(ctx,extension):
+    bot.load_extension(f'cmds.{extension}')
+    await ctx.send(f'loaded {extension} done.')
+    
 @bot.command()
 async def reload(ctx,extension):
     bot.reload_extension(f'cmds.{extension}')

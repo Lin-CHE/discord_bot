@@ -1,8 +1,14 @@
 {
-    "TOKEN":"ODYwMDQxNDk5OTA3NTg4MDk2.YN1eEA.VFVdnPJ-6kxNO7-guW943vkI9xY",
-    "welcome_channel":"860064974302609429",
-    "leave_channel":"860065136219521045",
-    "pic":["D:\\github_project\\discord_bot\\discord_bot\\pix\\1.jpg","D:\\github_project\\discord_bot\\discord_bot\\pix\\2.gif"],
-    "url_pic":["https://www.pixiv.net/artworks/90880816",
-               "https://www.pixiv.net/artworks/90581805"]
+    "time": "1841",
+    "TOKEN": "ODYwMDQxNDk5OTA3NTg4MDk2.YN1eEA.8EmO5J7zpCpCMyOpsnkYnPdnQRc",
+    "welcome_channel": "860064974302609429",
+    "leave_channel": "860065136219521045",
+    "pic": [
+        "D:\\github_project\\discord_bot\\discord_bot\\pix\\1.jpg",
+        "D:\\github_project\\discord_bot\\discord_bot\\pix\\2.gif"
+    ],
+    "url_pic": [
+        "https://www.pixiv.net/artworks/90880816",
+        "https://www.pixiv.net/artworks/90581805"
+    ]
 }
