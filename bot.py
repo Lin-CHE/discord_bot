@@ -13,6 +13,8 @@ from discord.flags import Intents
 import json
 import random
 import os
+import youtube_dl
+
 
 with open('setting.json','r',encoding='utf-8') as jfile:
     jdata=json.load(jfile)
@@ -36,7 +38,7 @@ async def unload(ctx,extension):
 async def load(ctx,extension):
     bot.load_extension(f'cmds.{extension}')
     await ctx.send(f'loaded {extension} done.')
-    
+
 @bot.command()
 async def reload(ctx,extension):
     bot.reload_extension(f'cmds.{extension}')
